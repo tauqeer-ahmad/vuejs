@@ -1,17 +1,27 @@
 const app = Vue.createApp({
     data() {
         return {
-            myName: "Yasir",
-            myAge: 24,
-            imageUrl: "https://xprolabs.com/assets/logo-56ba1c0eb664802e32a79198fd8a8e2c83dba2c2fada2b0c4b2389e43321e577.svg"
+            className: '',
+            backgroundColor: '',
+            paragraphVisibilty: true
+        }
+    },
+    computed: {
+        addClass() {
+            return {
+                user1: this.className === 'user1',
+                user2: this.className === 'user2',
+                visible: this.paragraphVisibilty,
+                hidden: !this.paragraphVisibilty
+            };
+        },
+        addBackgroundColor() {
+            return this.backgroundColor;
         }
     },
     methods: {
-        showRandom(){
-            return Math.random();
-        },
-        showName(){
-            return this.myName;
+        toggleParagraph() {
+            this.paragraphVisibilty = !this.paragraphVisibilty;
         }
     }
 });

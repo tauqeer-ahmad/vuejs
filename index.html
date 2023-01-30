@@ -13,21 +13,24 @@
     <script src="app.js" defer></script>
   </head>
   <body>
+    <header>
+      <h1>Vue Styling</h1>
+    </header>
     <section id="assignment">
-      <!-- 1) Output your name -->
-      <h2>{{ myName }}</h2>
-      <!-- 2) Output your age -->
-      <p>{{ myAge }}</p>
-      <!-- 3) Output your age + 5 -->
-      <p>{{ myAge + 5 }} in 5 years </p>
-      <!-- 4) Output a random number (0 to 1) -->
-      <p>Favourite Number : {{ showRandom() }}</p>
-      <div>
-        <!-- 5) Display some image you found via Google -->
-        <img v-bind:src="imageUrl" />
-      </div>
-      <!-- 6) Prepopulate the input field with your name via the "value" attribute -->
-      <input type="text" v-bind:value="showName()" />
+      <!-- 1) Fetch the user input and use it as a CSS class -->
+      <!-- The entered class should be added to the below paragraph -->
+      <input type="text" v-model="className" />
+      <!-- (available classes: "user1", "user2") -->
+      <p :class="addClass">
+        Style me! 
+      </p>
+      <button @click="toggleParagraph">Toggle Paragraph</button>
+      <!-- 2) Use the "visible" and "hidden" classes to show/ hide the above paragraph -->
+      <!-- Clicking the button should toggle between the two options -->
+
+      <!-- 3) Add dynamic inline styling to the below paragraph and let the user enter a background-color -->
+      <input type="text" v-model="backgroundColor"/>
+      <p :style="{'background-color': addBackgroundColor}">Style me inline!</p>
     </section>
   </body>
 </html>
