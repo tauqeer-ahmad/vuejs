@@ -1,17 +1,19 @@
 const app = Vue.createApp({
     data() {
         return {
-            myName: "Yasir",
-            myAge: 24,
-            imageUrl: "https://xprolabs.com/assets/logo-56ba1c0eb664802e32a79198fd8a8e2c83dba2c2fada2b0c4b2389e43321e577.svg"
+            output: '',
+            outputOnkeyDown: ''
         }
     },
     methods: {
-        showRandom(){
-            return Math.random();
+        showAlert() {
+            alert("Button Pressed");
         },
-        showName(){
-            return this.myName;
+        showOutput(event) {
+            this.output = event.target.value;
+        },
+        showOutputOnkeyDown(){
+            this.outputOnkeyDown = this.output;
         }
     }
 });
