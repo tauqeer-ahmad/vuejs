@@ -13,21 +13,17 @@
     <script src="app.js" defer></script>
   </head>
   <body>
+    <header>
+      <h1>Reactivity in Action</h1>
+    </header>
     <section id="assignment">
-      <!-- 1) Output your name -->
-      <h2>{{ myName }}</h2>
-      <!-- 2) Output your age -->
-      <p>{{ myAge }}</p>
-      <!-- 3) Output your age + 5 -->
-      <p>{{ myAge + 5 }} in 5 years </p>
-      <!-- 4) Output a random number (0 to 1) -->
-      <p>Favourite Number : {{ showRandom() }}</p>
-      <div>
-        <!-- 5) Display some image you found via Google -->
-        <img v-bind:src="imageUrl" />
-      </div>
-      <!-- 6) Prepopulate the input field with your name via the "value" attribute -->
-      <input type="text" v-bind:value="showName()" />
+      <button @click="addFive">Add 5</button>
+      <button @click="addOne">Add 1</button>
+      <!-- 1) Connect the buttons and calculate a value (a number) -->
+      <!-- Show "Not there yet" until you reach a result of exactly 37 -->
+      <!-- Show "Too much!" if the result is greater than 37 -->
+      <p>Result: {{ showResult }}</p>
+      <!-- 2) Watch for changes in "result" and reset the value to 0 after 5 seconds -->
     </section>
   </body>
 </html>

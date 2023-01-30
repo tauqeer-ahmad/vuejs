@@ -1,17 +1,38 @@
 const app = Vue.createApp({
     data() {
         return {
-            myName: "Yasir",
-            myAge: 24,
-            imageUrl: "https://xprolabs.com/assets/logo-56ba1c0eb664802e32a79198fd8a8e2c83dba2c2fada2b0c4b2389e43321e577.svg"
+            counter: 0
         }
     },
+    computed: {
+        showResult() {
+            if (this.counter < 37) {
+                return "Not there yet";
+            }
+            else if (this.counter > 37) {
+                return "Too much!";
+            }
+            else if (this.counter === 37) {
+                return 37;
+            }
+        }
+    },
+    watch: {
+        showResult() {
+            console.log("Watcher executing...");
+            const that = this;
+            setTimeout(function () {
+                that.counter = 0;
+            }, 5000);
+        }
+
+    },
     methods: {
-        showRandom(){
-            return Math.random();
+        addFive() {
+            this.counter = this.counter + 5;
         },
-        showName(){
-            return this.myName;
+        addOne() {
+            this.counter = this.counter + 1;
         }
     }
 });
