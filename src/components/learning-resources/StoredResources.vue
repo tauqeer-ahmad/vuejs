@@ -12,7 +12,7 @@ export default {
     components: {
         'learning-resource': LearningResoure,
     },
-    props: ['resources']
+    inject: ['resources']
 }
 </script>
 
