@@ -6,6 +6,7 @@
         <base-button @click="loadExperiences">Load Submitted Experiences</base-button>
       </div>
       <p v-if="isLoading">Loading...</p>
+      <p v-else-if="isError">{{ isError }}</p>
       <p v-else-if="!isLoading && (!results || results.length === 0)">No Experiences Found! Add some ...</p>
       <ul v-else-if="!isLoading && results && results.length > 0">
         <survey-result v-for="result in results" :key="result.id" :name="result.name"
@@ -26,6 +27,7 @@ export default {
     return {
       results: [],
       isLoading: false,
+      isError: null
     }
   },
   methods: {
@@ -46,6 +48,10 @@ export default {
           })
         }
         this.results = results;
+      }).catch((error) => {
+        console.log(error);
+        this.isLoading = false;
+        this.isError = "Failed to fetch data - please try again"
       });
     }
   },
