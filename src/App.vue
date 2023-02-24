@@ -24,13 +24,13 @@ export default {
   },
   computed: {
     isAuth() {
-      return this.$store.getters.userIsLoggedIn;
+      return this.$store.getters['authentication/userIsLoggedIn'];
     }
   },
   methods: {
     addOne() {
       this.$store.dispatch({
-        type: 'increase',
+        type: 'numbers/increase',
         value: 10
       });
     }

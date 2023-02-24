@@ -7,15 +7,15 @@
 export default {
     methods: {
         login() {
-            this.$store.dispatch('login');
+            this.$store.dispatch('authentication/login');
         },
         logout() {
-            this.$store.dispatch('logout');
+            this.$store.dispatch('authentication/logout');
         }
     },
     computed: {
         isAuth() {
-            return this.$store.getters.userIsLoggedIn;
+            return this.$store.getters['authentication/userIsLoggedIn'];
         }
     }
 };
