@@ -7,7 +7,8 @@ export default {
         return {
             userId: null,
             token: null,
-            tokenExpiration: null
+            tokenExpiration: null,
+            apiKey: process.env.VUE_APP_API_KEY
         }
     },
     actions,
