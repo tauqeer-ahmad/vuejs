@@ -8,7 +8,8 @@ export default {
             userId: null,
             token: null,
             tokenExpiration: null,
-            apiKey: process.env.VUE_APP_API_KEY
+            apiKey: process.env.VUE_APP_API_KEY,
+            didAutoLogout: false
         }
     },
     actions,
